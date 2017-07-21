@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shoe store</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Brands of Shoes!</h1>
+
+      {% if brands is not empty %}
+      <p>Shoes:</p>
+      <ul>
+      {% for brand in brands %}
+      <li><a href="/brands/{{ brand.getId }}">{{ brand.getBrandName }}</a></li>
+      {% endfor %}
+      </ul>
+      {% endif %}
+
+      <form action='/brands' method='post'>
+        <label for='brand_name'>Brand</label>
+        <input id='brand_name' name='brand_name' type='text' required>
+        <label for='price'>Price</label>
+        <input id='price' name='price' type='text' required>
+
+        <button type='submit'>Add it</button>
+      </form>
+
+      <form action='/delete_brands' method='post'>
+        <button type='submit'>Clear</button>
+      </form>
+
+      <p><a href='/'>Home</a></p>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shoe Store</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Update the {{ brand.getBrandName }} inventory </h1>
+
+      <form action="/brands/{{ brand.getId }}" method="post">
+        <input name="_method" type="hidden" value="patch">
+
+        <label for="brand_name">Re-brand it!</label>
+        <input id="brand_name" name="brand_name" type="text" required>
+        <label for="price">Change the price:</label>
+        <input id="price" name="price" type="text" required>
+
+        <button type="submit">Just do it!</button>
+      </form>
+
+      <form action="/brands/{{ brand.getId }}" method="post">
+        <input name="_method" type="hidden" value="delete">
+
+        <button type="submit">This brand is out of stock!</button>
+      </form>
+    </div>
+  </body>
+</html>

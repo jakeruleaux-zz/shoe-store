@@ -12,7 +12,7 @@
     <p>Here are the shoe stores:</p>
     <ul>
         {% for store in stores %}
-        <li><a href="/stores/{{ store.getId }}">{{ store.getStoreName }}</a></li>
+        <li><a href="/stores/{{ store.getId }}">{{ store.getStoreName }} Address: {{store.getAddress}}</a></li>
     {% endfor %}
     </ul>
     {% endif %}
