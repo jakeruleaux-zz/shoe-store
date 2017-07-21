@@ -21,7 +21,7 @@
 
         function setBrandName($new_brand_name)
         {
-            $this->brand_name = (string) $new_brand_name;
+            $this->brand_name = ucfirst(strtolower($new_brand_name));
         }
 
         function getPrice()

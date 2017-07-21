@@ -28,7 +28,7 @@
       <label for="brand_id">Select a brand</label>
       <select id='brand_id' name='brand_id' type='text'>
         {% for brand in all_brands %}
-        <option value="{{ brand.getId }}"> {{ brand.getBrandName }} {{ brand.getPrice }} </option>
+        <option value="{{ brand.getId }}"> {{ brand.getBrandName }}</option>
         {% endfor %}
       </select>
       <button type='submit'>Add brand</button>
