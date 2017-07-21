@@ -23,21 +23,51 @@
         {
             //Arrange
             $store_name = "Shoes";
-            $test_store = new Store($store_name);
+            $address = "13 nw";
+            $test_store = new Store($store_name, $address);
             //Act
             $result = $test_store->getStoreName();
             //Assert
             $this->assertEquals($store_name, $result);
         }
 
+        function testGetAddress()
+        {
+            //Arrange
+            $store_name = "Shoes";
+            $address = "13 nw";
+            $test_store = new Store($store_name, $address);
+            //Act
+            $result = $test_store->getAddress();
+            //Assert
+            $this->assertEquals($address, $result);
+        }
+
         function testGetId()
         {
             //Arrange
             $store_name = "Shoe";
-            $test_store = new Store($store_name);
+            $address = "13 nw";
+            $test_store = new Store($store_name, $address);
             $test_store->save();
             //Act
             $result = $test_store->getId();
             //Assert
             $this->assertEquals(true, is_numeric($result));
         }
+
+        function testSave()
+       {
+           //Arrange
+           $store_name = "Shoes";
+           $address = "13 nw";
+           $test_store = new Store($store_name, $address);
+           //Act
+           $executed = $test_store->save();
+           //Assert
+           $this->assertTrue($executed, "Theres no store in database!!!!");
+       }
+
+
+    }
+?>

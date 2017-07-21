@@ -36,5 +36,16 @@
         {
             return $this->id;
         }
+
+        function save()
+       {
+           $executed = $GLOBALS['DB']->exec("INSERT INTO store (store_name, address) VALUES ('{$this->getStoreName()}', '{$this->getAddress()}');");
+           if ($executed) {
+               $this->id = $GLOBALS['DB']->lastInsertId();
+               return true;
+           } else {
+               return false;
+           }
+       }
     }
  ?>
