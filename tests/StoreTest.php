@@ -16,7 +16,7 @@
         protected function tearDown()
                {
                  Store::deleteAll();
-                //  Brand::deleteAll();
+                 Brand::deleteAll();
                }
 
         function testGetStoreName()
@@ -186,12 +186,13 @@
         {
             //Arrange
             $store_name = "Shoe";
+            $address = "11 nw";
             $id = null;
-            $test_store = new Store($store_name, $id);
+            $test_store = new Store($store_name, $address, $id);
             $test_store->save();
 
             $brand_name = "Bio";
-            $price = "B101";
+            $price = "10";
             $id = null;
             $test_brand = new Brand($course_name, $price, $id);
             $test_brand->save();
