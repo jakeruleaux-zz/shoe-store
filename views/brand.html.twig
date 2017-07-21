@@ -7,9 +7,9 @@
     <div class="container">
 
       <h1>{{ brand.getBrandName }}</h1>
-
+      <h3>{{ brand.getPrice }}</h3>
       {% if stores is not empty %}
-      <p>Tese stores have the shoes:</p>
+      <p>These stores have the shoes:</p>
       <ul>
       {% for store in stores %}
       <li>{{ store.getStoreName }}</li>
@@ -27,12 +27,12 @@
         <label for='store_id'>Which store?</label>
         <select id='store_id' name='store_id' type='text'>
         {% for store in all_stores %}
-        <option value="{{ store.getId }}"> {{ store.getStoreName }} </option>
+        <option value="{{ store.getId }}">{{ store.getStoreName }}</option>
         {% endfor %}
         </select>
         <button type="submit">Add store</button>
       </form>
-      <p><a href="/brands/{{ brand.getId }}/edit">Chnage the brand</a></p>
+      <p><a href="/brands/{{ brand.getId }}/edit">Change the brand</a></p>
       <p><a href='/'>Home</a></p>
     </div>
   </body>

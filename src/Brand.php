@@ -31,9 +31,9 @@
 
         function setPrice($new_price)
         {
-            $this->price = $new_price;
+            $this->price = money_format($new_price);
         }
-        
+
         function getId()
         {
             return $this->id;

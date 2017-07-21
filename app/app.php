@@ -3,10 +3,11 @@
     require_once __DIR__."/../vendor/autoload.php";
     require_once __DIR__."/../src/Store.php";
     require_once __DIR__."/../src/Brand.php";
-
+    // use Symfony\Component\Debug\Debug;
+    //        Debug::enable();
     $app = new Silex\Application();
-
-    $server = 'mysql:host=localhost:8889;dbname=shoe_store';
+// $app['debug'] = true;
+    $server = 'mysql:host=localhost:8889;dbname=shoes';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -43,7 +44,7 @@
         $brand = Brand::find($_POST['brand_id']);
         $store = Store::find($_POST['store_id']);
         $brand->addStore($store);
-        return $app['twig']->render('brand.html.twig', array('brand' => $brand, 'brands' => Brand::getAll(), 'stores' => $brand->getStore(), 'all_stores' => Store::getAll()));
+        return $app['twig']->render('brand.html.twig', array('brand' => $brand, 'brands' => Brand::getAll(), 'stores' => $brand->getStores(), 'all_stores' => Store::getAll()));
     });
 
     $app->post("/add_brands", function() use ($app) {
@@ -63,8 +64,10 @@
     });
 
     $app->post("/brands", function() use ($app) {
-        $brand = new Brand($_POST['brand_name']);
-        $brand->save();
+        $brand_name = $_POST['brand_name'];
+        $price = $_POST['price'];
+        $new_brand = new Brand($brand_name, $price, $id = null);
+        $new_brand->save();
         return $app['twig']->render('brands.html.twig', array('brands' => Brand::getAll()));
     });
 
@@ -77,7 +80,7 @@
         $brand_name = $_POST['brand_name'];
         $brand = Brand::find($id);
         $brand->update($brand_name);
-        return $app['twig']->render('brand.html.twig', array('brand' => $brand, 'stores' => $brand->getBrands()));
+        return $app['twig']->render('brand.html.twig', array('brand' => $brand, 'stores' => $brand->getStores()));
     });
 
     $app->delete("/brands/{id}", function($id) use ($app) {
