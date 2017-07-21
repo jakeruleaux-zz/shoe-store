@@ -31,7 +31,7 @@
 
         function setPrice($new_price)
         {
-            $this->price = money_format($new_price);
+            $this->price = money_format((float)$new_price, 2, '.', '');
         }
 
         function getId()
