@@ -28,10 +28,12 @@
         {
             return $this->price;
         }
+
         function setPrice($new_price)
         {
-            $this->price = (string) $new_price;
+            $this->price = $new_price;
         }
+        
         function getId()
         {
             return $this->id;

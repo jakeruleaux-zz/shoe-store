@@ -2,11 +2,13 @@
 <html>
   <head>
     <link rel="stylesheet" href="/css/styles.css">
-    <title>Show Store</title>
+    <title>Shoe Store</title>
   </head>
   <body>
     <div class="container">
+      <h1>The store you were looking for:</h1>
       <h1>{{ store.getStoreName }}</h1>
+      <h3>{{ store.getAddress }}</h3>
       {% if brands is not empty %}
       <p>Here's the brands at this store:</p>
       <ul>
