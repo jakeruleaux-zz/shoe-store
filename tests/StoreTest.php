@@ -4,7 +4,7 @@
     * @backupStaticAttributes disabled
     */
     require_once "src/Store.php";
-    // require_once "src/Brand.php";
+    require_once "src/Brand.php";
 
     $server = 'mysql:host=localhost:8889;dbname=shoe_store_test';
     $username = 'root';
@@ -92,12 +92,12 @@
             $store_name = "Shoe";
             $address = "12";
             $test_store = new Store($store_name, $address);
-            $test_student->save();
+            $test_store->save();
 
             $store_name_2 = "Shoes two";
             $address_2 = "11";
-            $test_student_2 = new Store($store_name_2, $address_2);
-            $test_student_2->save();
+            $test_store_2 = new Store($store_name_2, $address_2);
+            $test_store_2->save();
             //Act
             Store::deleteAll();
             $result = Store::getAll();
@@ -159,9 +159,9 @@
         {
            //Arrange
            $store_name = "Shoe";
-           $address = "12"
+           $address = "12";
            $id = null;
-           $test_store = new Store($name, $address, $id);
+           $test_store = new Store($store_name, $address, $id);
            $test_store->save();
 
            $brand_name = "Nike";
@@ -170,16 +170,16 @@
            $test_brand = new Brand($brand_name, $price, $id);
            $test_brand->save();
 
-           $brand_name2 = "Puma";
+           $brand_name_2 = "Puma";
            $price_2 = "12";
            $id_2 = null;
-           $test_brand2 = new Brand($brand_name2, $price_2, $id_2);
-           $test_brand2->save();
+           $test_brand_2 = new Brand($brand_name_2, $price_2, $id_2);
+           $test_brand_2->save();
            //Act
            $test_store->addBrand($test_brand);
-           $test_store->addBrand($test_brand2);
+           $test_store->addBrand($test_brand_2);
            //Assert
-           $this->assertEquals($test_store->getBrands(), [$test_brand, $test_brand2]);
+           $this->assertEquals($test_store->getBrands(), [$test_brand, $test_brand_2]);
         }
 
         function testAddBrand()
@@ -191,10 +191,10 @@
             $test_store = new Store($store_name, $address, $id);
             $test_store->save();
 
-            $brand_name = "Bio";
+            $brand_name = "Nike";
             $price = "10";
             $id = null;
-            $test_brand = new Brand($course_name, $price, $id);
+            $test_brand = new Brand($brand_name, $price, $id);
             $test_brand->save();
             //Act
             $test_store->addBrand($test_brand);

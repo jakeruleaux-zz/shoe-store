@@ -83,7 +83,7 @@
                 $price = $brand['price'];
                 $id = $brand['id'];
                 if ($id == $search_id) {
-                    $found_brand = new Brand($brand_name, $brand_nae, $price, $id);
+                    $found_brand = new Brand($brand_name, $price, $id);
                 }
             }
             return $found_brand;
@@ -114,31 +114,31 @@
              }
         }
 
-        function getStores()
-        {
-            $returned_stores = $GLOBALS['DB']->query("SELECT stores.* FROM brands
-                JOIN stores_brands ON (stores_brands.brand_id = brands.id)
-                JOIN stores ON (stores.id = stores_brands.store_id)
-                WHERE brands.id = {$this->getId()};");
-            $stores = array();
-            foreach ($returned_stores as $store) {
-                $store_name = $store['store_name'];
-                $address = $store['address'];
-                $id = $store['id'];
-                $new_store = new Store($store_name, $address, $id);
-                array_push($stores, $new_store);
-            }
-            return $stores;
-        }
-
-        function addStore($store)
-        {
-            $executed = $GLOBALS['DB']->exec("INSERT INTO stores_brands (brand_id, store_id) VALUES ({$this->getId()}, {$store->getId()});");
-            if ($executed) {
-                return true;
-            } else {
-                return false;
-            }
-        }
+        // function getStores()
+        // {
+        //     $returned_stores = $GLOBALS['DB']->query("SELECT stores.* FROM brands
+        //         JOIN stores_brands ON (stores_brands.brand_id = brands.id)
+        //         JOIN stores ON (stores.id = stores_brands.store_id)
+        //         WHERE brands.id = {$this->getId()};");
+        //     $stores = array();
+        //     foreach ($returned_stores as $store) {
+        //         $store_name = $store['store_name'];
+        //         $address = $store['address'];
+        //         $id = $store['id'];
+        //         $new_store = new Store($store_name, $address, $id);
+        //         array_push($stores, $new_store);
+        //     }
+        //     return $stores;
+        // }
+        //
+        // function addStore($store)
+        // {
+        //     $executed = $GLOBALS['DB']->exec("INSERT INTO stores_brands (brand_id, store_id) VALUES ({$this->getId()}, {$store->getId()});");
+        //     if ($executed) {
+        //         return true;
+        //     } else {
+        //         return false;
+        //     }
+        // }
     }
  ?>

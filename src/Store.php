@@ -39,7 +39,7 @@
 
         function save()
        {
-           $executed = $GLOBALS['DB']->exec("INSERT INTO store (store_name, address) VALUES ('{$this->getStoreName()}', '{$this->getAddress()}');");
+           $executed = $GLOBALS['DB']->exec("INSERT INTO stores (store_name, address) VALUES ('{$this->getStoreName()}', '{$this->getAddress()}');");
            if ($executed) {
                $this->id = $GLOBALS['DB']->lastInsertId();
                return true;
@@ -50,7 +50,7 @@
 
         static function getAll()
         {
-            $returned_stores = $GLOBALS['DB']->query("SELECT * FROM store;");
+            $returned_stores = $GLOBALS['DB']->query("SELECT * FROM stores;");
             $stores = array();
             foreach($returned_stores as $store) {
                 $store_name = $store['store_name'];
@@ -64,7 +64,7 @@
 
         static function deleteAll()
         {
-            $executed = $GLOBALS['DB']->exec("DELETE FROM store;");
+            $executed = $GLOBALS['DB']->exec("DELETE FROM stores;");
             if ($executed) {
                 return true;
             } else {
@@ -82,7 +82,7 @@
              $address = $store['address'];
              $id = $store['id'];
              if ($id == $search_id) {
-                 $found_store = new Store($store_name, $store_code, $id);
+                 $found_store = new Store($store_name, $address, $id);
                 }
             }
             return $found_store;
