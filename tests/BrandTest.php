@@ -137,6 +137,20 @@
             $this->assertEquals("Puma", $test_brand->getBrandName());
         }
 
+        function testPriceUpdate()
+        {
+          //Arrange
+          $brand_name = "Nike";
+          $price = "11";
+          $test_brand = new Brand($brand_name, $price);
+          $test_brand->save();
+          $new_price = "12";
+          //Act
+          $test_brand->updatePrice($new_price);
+          //Assert
+          $this->assertEquals("12", $test_brand->getPrice());
+        }
+
         function testDelete()
         {
             //Arrange
