@@ -17,10 +17,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `shoes`
+-- Database: `shoes_test`
 --
-CREATE DATABASE IF NOT EXISTS `shoes` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `shoes`;
+CREATE DATABASE IF NOT EXISTS `shoes_test` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `shoes_test`;
 
 -- --------------------------------------------------------
 
@@ -34,16 +34,6 @@ CREATE TABLE `brands` (
   `id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `brands`
---
-
-INSERT INTO `brands` (`brand_name`, `price`, `id`) VALUES
-('nike', 1, 8),
-('prima', 2, 9),
-('wqert', 3, 10),
-('qsdt', 34, 13);
-
 -- --------------------------------------------------------
 
 --
@@ -56,16 +46,6 @@ CREATE TABLE `stores` (
   `id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `stores`
---
-
-INSERT INTO `stores` (`store_name`, `address`, `id`) VALUES
-('the ', '12 nw', 1),
-('town', '12 nw', 2),
-('what', 'qww', 3),
-('qw', 'jklkjkk', 4);
-
 -- --------------------------------------------------------
 
 --
@@ -77,33 +57,6 @@ CREATE TABLE `stores_brands` (
   `brand_id` int(11) DEFAULT NULL,
   `id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `stores_brands`
---
-
-INSERT INTO `stores_brands` (`store_id`, `brand_id`, `id`) VALUES
-(1, 1, 1),
-(1, 1, 2),
-(1, 1, 3),
-(3, 4, 4),
-(1, 4, 5),
-(1, 4, 6),
-(3, 4, 7),
-(3, 4, 8),
-(2, 6, 10),
-(2, 4, 11),
-(1, 7, 12),
-(1, 8, 13),
-(1, 9, 14),
-(1, 10, 15),
-(3, 8, 16),
-(3, 9, 17),
-(3, 10, 18),
-(3, 10, 19),
-(1, 9, 20),
-(4, 8, 21),
-(4, 13, 22);
 
 --
 -- Indexes for dumped tables
