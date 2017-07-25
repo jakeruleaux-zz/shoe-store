@@ -1,57 +1,71 @@
-Shoe Store
+* Shoe Store
 
-Shoe Store App, 07/21/17
+* Shoe Store App, 07/21/17
 
-By Jacob Ruleaux
+* By Jacob Ruleaux
 
-Description;
+* Description;
 
 The Shoe Store app will allow a user to enter a new store name as well as a shoe brand name. This data will be stored and viewed. The user will be able to add, edit, or delete either of these datatypes.
 
-Setup/Installation Requirements
+* CRUD for the php model;
 
-Open GitHub site on your browser: https://github.com/jakeruleaux/shoe-store
+* C: ...$executed = $GLOBALS['DB']->exec("INSERT INTO brands (brand_name, price) VALUES ('{$this->getBrandName()}',...
 
-Select the dropdown (green box) "Clone or download"
+* R: ...$returned_stores = $GLOBALS['DB']->query("SELECT stores.* FROM brands...
 
-Copy the link for the GitHub repository
+* U: ...$executed = $GLOBALS['DB']->exec("UPDATE brands SET brand_name = '{$new_brand_name}' WHERE id = {$this->getId()};");...
 
-Open Terminal on your computer
+* D: ...  $executed = $GLOBALS['DB']->exec("DELETE FROM brands WHERE id = {$this->getId()};");...
 
-In Terminal, perform the following steps:
+* Setup/Installation Requirements
 
-Type 'cd desktop' and press enter.
+* The program requires MAMP or a similair program to run.
 
-Type 'git clone' then copy the repository link and press enter.
+* The program requires Composer. After cloning into the app type 'composer install' into your terminal and press enter.
 
-Type 'cd shoe-store' to access the path on your terminal.
+* Open GitHub site on your browser: https://github.com/jakeruleaux/shoe-store
 
-Type 'localhost:8888/phpmyadmin' and select the import tab near the top of the screen. In the import tab browse for 'shoes.sql.zip'.
+* Select the dropdown (green box) "Clone or download"
 
-Select this file and click the 'go' button at the bottom.
+* Copy the link for the GitHub repository
 
-In Terminal type /Applications/MAMP/Library/bin/mysql --host=localhost -uroot -proot.
+* Open Terminal on your computer
 
-In mysql type 'SHOW DATABASES;' to confirm that you have the 'shoes' database.
+* In Terminal, perform the following steps:
 
-In mysql type 'USE shoes;'.
+* Type 'cd desktop' and press enter.
 
-In your Address Bar type 'localhost:8888' to view app.
+* Type 'git clone' then copy the repository link and press enter.
 
-The paths in MAMP may need to be adjusted. In MAMP click the 'web server' tab. Make sure you have the appropriate document root path, ex: 'User/File-directory/file/web'.
+* Type 'cd shoe-store' to access the path on your terminal.
 
-Known Bugs
+* Type 'localhost:8888/phpmyadmin' and select the import tab near the top of the screen. In the import tab browse for 'shoes.sql.zip'.
+
+* Select this file and click the 'go' button at the bottom.
+
+* In Terminal type /Applications/MAMP/Library/bin/mysql --host=localhost -uroot -proot.
+
+* In mysql type 'SHOW DATABASES;' to confirm that you have the 'shoes' database.
+
+* In mysql type 'USE shoes;'.
+
+* In your Address Bar type 'localhost:8888' to view app.
+
+* The paths in MAMP may need to be adjusted. In MAMP click the 'web server' tab. Make sure you have the appropriate document root path, ex: 'User/File-directory/file/web'.
+
+* Known Bugs
 
 The program requires a localhost to function. It was designed with MAMP in mind. Similar programs may support it.
 
-Support and contact details
+* Support and contact details
 
 Feel free to contact the author with questions or concerns at jakeruleaux@hotmail.com
 
-Technologies Used
+* Technologies Used
 The application relies on MAMP, PHP, Silex, Twig with some Bootstrap for styling and basic HTML for display.
 
-License
+* License
 MIT
 
-Copyright (c) 2017 Jacob Ruleaux
+* Copyright (c) 2017 Jacob Ruleaux
