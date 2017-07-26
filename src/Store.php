@@ -21,7 +21,7 @@
 
         function setStoreName($new_store_name)
         {
-            $this->store_name = ucfirst(strtolower($new_store_name));
+            $this->store_name = $new_store_name;
         }
 
         function getAddress()

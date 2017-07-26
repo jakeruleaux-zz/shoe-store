@@ -16,12 +16,12 @@
 
         function getBrandName()
         {
-            return $this->brand_name;
+            return $this->ucfirst(strtolower($brand_name);
         }
 
         function setBrandName($new_brand_name)
         {
-            $this->brand_name = ucfirst(strtolower($new_brand_name));
+            $this->brand_name = $new_brand_name;
         }
 
         function getPrice()
@@ -31,7 +31,7 @@
 
         function setPrice($new_price)
         {
-            $this->price = money_format('%.2n', $new_price);
+            $this->price = $new_price;
         }
 
         function getId()
