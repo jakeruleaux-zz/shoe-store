@@ -16,7 +16,7 @@
 
         function getBrandName()
         {
-            return $this->ucfirst(strtolower($brand_name);
+            return $this->brand_name;
         }
 
         function setBrandName($new_brand_name)
