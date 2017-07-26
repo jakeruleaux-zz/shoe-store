@@ -15,8 +15,8 @@
     {
         protected function tearDown()
                {
-                 Brand::deleteAll();
-                 Store::deleteAll();
+                Brand::deleteAll();
+                Store::deleteAll();
                }
 
         function testGetBrandName()
@@ -58,14 +58,14 @@
 
         function testSave()
        {
-           //Arrange
-           $brand_name = "Nike";
-           $price = "11";
-           $test_brand = new Brand($brand_name, $price);
-           //Act
-           $executed = $test_brand->save();
-           //Assert
-           $this->assertTrue($executed, "Theres no shoe brands in database!!!!");
+            //Arrange
+            $brand_name = "Nike";
+            $price = "11";
+            $test_brand = new Brand($brand_name, $price);
+            //Act
+            $executed = $test_brand->save();
+            //Assert
+            $this->assertTrue($executed, "Theres no shoe brands in     database!!!!");
        }
 
         function testGetAll()
@@ -139,16 +139,16 @@
 
         function testPriceUpdate()
         {
-          //Arrange
-          $brand_name = "Nike";
-          $price = "11";
-          $test_brand = new Brand($brand_name, $price);
-          $test_brand->save();
-          $new_price = "12";
-          //Act
-          $test_brand->updatePrice($new_price);
-          //Assert
-          $this->assertEquals("12", $test_brand->getPrice());
+            //Arrange
+            $brand_name = "Nike";
+            $price = "11";
+            $test_brand = new Brand($brand_name, $price);
+            $test_brand->save();
+            $new_price = "12";
+            //Act
+            $test_brand->updatePrice($new_price);
+            //Assert
+            $this->assertEquals("12", $test_brand->getPrice());
         }
 
         function testDelete()
@@ -171,29 +171,29 @@
 
         function testGetStores()
         {
-           //Arrange
-           $brand_name = "Nike";
-           $price = "12";
-           $id = null;
-           $test_brand = new Brand($brand_name, $price, $id);
-           $test_brand->save();
+            //Arrange
+            $brand_name = "Nike";
+            $price = "12";
+            $id = null;
+            $test_brand = new Brand($brand_name, $price, $id);
+            $test_brand->save();
 
-           $store_name = "Shoe";
-           $address = "10 nw";
-           $id = null;
-           $test_store = new Store($store_name, $address, $id);
-           $test_store->save();
+            $store_name = "Shoe";
+            $address = "10 nw";
+            $id = null;
+            $test_store = new Store($store_name, $address, $id);
+            $test_store->save();
 
-           $store_name_2 = "Shoes two";
-           $address_2 = "12 nw";
-           $id_2 = null;
-           $test_store_2 = new Store($store_name_2, $address_2, $id_2);
-           $test_store_2->save();
-           //Act
-           $test_brand->addStore($test_store);
-           $test_brand->addStore($test_store_2);
-           //Assert
-           $this->assertEquals($test_brand->getStores(), [$test_store, $test_store_2]);
+            $store_name_2 = "Shoes two";
+            $address_2 = "12 nw";
+            $id_2 = null;
+            $test_store_2 = new Store($store_name_2, $address_2, $id_2);
+            $test_store_2->save();
+            //Act
+            $test_brand->addStore($test_store);
+            $test_brand->addStore($test_store_2);
+            //Assert
+            $this->assertEquals($test_brand->getStores(), [$test_store,     $test_store_2]);
         }
 
         function testAddStore()
@@ -216,7 +216,5 @@
             $this->assertEquals($test_brand->getStores(), [$test_store]);
         }
 
-
-
-    }
+      }
 ?>

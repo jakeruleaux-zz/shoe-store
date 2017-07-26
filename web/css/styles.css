@@ -11,10 +11,11 @@ body {
 textarea:focus, input:focus{
   color: black;
 }
+
 .bttn {
   background-color: pink;
 }
-/*
+
 li {
   list-style: none;
-}*/
+}
