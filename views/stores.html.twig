@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>shoe store</title>
-</head>
-<body>
-  <div class="container">
+  <head>
+    <title>shoe store</title>
+  </head>
+  <body>
+    <div class="container">
 
-    <h1>Stores</h1>
+      <h1>Stores</h1>
 
-    {% if stores is not empty %}
-    <p>Here are the shoe stores:</p>
-    <ul>
+      {% if stores is not empty %}
+      <p>Here are the shoe stores:</p>
+      <ul>
         {% for store in stores %}
         <li><a href="/stores/{{ store.getId }}">{{ store.getStoreName }}</a></li>
-    {% endfor %}
-    </ul>
-    {% endif %}
+        {% endfor %}
+      </ul>
+      {% endif %}
 
-    <form action='/stores' method='post'>
-    <label for='store_name'>Store Name </label>
-    <input id='store_name' name='store_name' type='text' required>
-    <label for='address'>Store address </label>
-    <input id='address' name='address' type='text' required>
+      <form action='/stores' method='post'>
+        <label for='store_name'>Store Name </label>
+        <input id='store_name' name='store_name' type='text' required>
+        <label for='address'>Store address </label>
+        <input id='address' name='address' type='text' required>
 
-    <button type='submit'>Add store</button>
-    </form>
-    <form action='/delete_stores' method='post'>
-    <button type='submit' class='btn-info'>Clear</button>
-    </form>
+        <button type='submit'>Add store</button>
+      </form>
+      <form action='/delete_stores' method='post'>
+        <button type='submit' class='btn-info'>Clear</button>
+      </form>
 
-    <p><a href='/'>Home</a></p>
-  </div>
-</body>
+      <p><a href='/'>Home</a></p>
+    </div>
+  </body>
 </html>
