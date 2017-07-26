@@ -3,10 +3,10 @@
     require_once __DIR__."/../vendor/autoload.php";
     require_once __DIR__."/../src/Store.php";
     require_once __DIR__."/../src/Brand.php";
-    // use Symfony\Component\Debug\Debug;
-    //        Debug::enable();
+
+
     $app = new Silex\Application();
-// $app['debug'] = true;
+
     $server = 'mysql:host=localhost:8889;dbname=shoes';
     $username = 'root';
     $password = 'root';
