@@ -7,3 +7,11 @@ body {
   color: white;
   text-shadow: 2px 2px black;
 }
+
+.bttn {
+  background-color: pink;
+}
+
+li {
+  list-style: none;
+}
